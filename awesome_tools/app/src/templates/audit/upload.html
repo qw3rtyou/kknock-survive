@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Upload Project for Audit{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/styles.css" />
+
+<div class="container container-custom-audit">
+    <h1 class="text-center text-white">Uplo@d your Proj3ct<span class="exclamation">!</span><span class="exclamation">!</span></h1>
+
+    <form action="{{ url_for('audit_bp.audit') }}" method="POST" enctype="multipart/form-data" class="mt-4">
+        <div class="form-group">
+            <input type="file" name="file" class="form-control-file" multiple>
+        </div>
+        <button type="submit" class="btn btn-orange mt-3 text-white">Upload</button>
+    </form>
+</div>
+{% endblock %}

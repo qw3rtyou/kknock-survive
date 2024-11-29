@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8071:8888"
+    environment:
+      - PORT=8888
+      - FLAG=FLAG{your_secret_flag_here}
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules  # node_modules 제외

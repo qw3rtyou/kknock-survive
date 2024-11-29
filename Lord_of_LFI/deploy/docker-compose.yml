@@ -1,0 +1,16 @@
+services:
+  stage1:
+    build: ./stage1
+    ports:
+      - "8072:80"
+
+  stage2:
+    build: ./stage2
+    ports:
+      - "8073:80"
+
+  stage3:
+    build: ./stage3
+    ports:
+      - "8074:80"
+

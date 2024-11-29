@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Index Page{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="/static/css/styles.css" />
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+        });
+    });
+</script>
+
+<div class="mt-5 container-fluid" style="margin-bottom: 30px;">
+    <div class="card-grid">
+        <a href="{{ url_for('file_bp.upload') }}" class="card text-center text-decoration-none">
+            <div class="card-body">
+                <h5 class="card-title">Share Files</h5>
+                <p class="card-text">Share our files</p>
+            </div>
+        </a>
+
+        {% if session['role'] == 'admin' %}
+        <a href="{{ url_for('audit_bp.audit') }}" class="card text-center text-decoration-none">
+            <div class="card-body">
+                <h5 class="card-title">Code Auditing</h5>
+                <p class="card-text">Review your project</p>
+            </div>
+        </a>
+        {% endif %}
+        
+        <a href="#" class="card text-center text-decoration-none">
+            <div class="card-body">
+                <h5 class="card-title">None</h5>
+                <p class="card-text">Construction Zone</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+{% endblock %}
