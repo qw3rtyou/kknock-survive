@@ -1,0 +1,36 @@
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/static/css/styles.css" />
+
+<nav class="navbar navbar-custom navbar-expanded">
+    <div class="container-fluid">
+        <a class="navbar-brand navbar-brand-custom" href="{{ url_for('index') }}">Logo</a>
+        <div class="dropdown">
+            <button class="btn btn-outline-light dropdown-toggle" type="button" id="userMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ user_id }}
+            </button>
+            <div class="dropdown-menu dropdown-menu-custom" aria-labelledby="userMenuButton">
+                <a class="dropdown-item dropdown-item-custom" href="{{ url_for('auth_bp.profile') }}">Profile</a>
+                <a class="dropdown-item dropdown-item-danger" href="{{ url_for('auth_bp.logout') }}">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.querySelector(".navbar-custom");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 50) {
+                navbar.classList.remove("navbar-expanded");
+                navbar.classList.add("navbar-collapsed");
+            } else {
+                navbar.classList.remove("navbar-collapsed");
+                navbar.classList.add("navbar-expanded");
+            }
+        });
+    });
+</script>
+

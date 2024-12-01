@@ -1,5 +1,0 @@
-app/uploads/*
-!uploads/.gitkeep
-
-app/src/__pycache__/*
-.env
